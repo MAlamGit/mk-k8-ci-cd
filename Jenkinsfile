@@ -1,15 +1,13 @@
 node{
   def Namespace = "pkapp"
-  def ImageName = "maheshkharwadkar/mkimage"
+  def ImageName = "mahtabdocker/mkimage"
   def Creds	= "mk-dockerhub-creds"
   def imageTag = "1.0"
   try{
   stage('Checkout'){
-      git 'https://github.com/maheshkharwadkar/mk-k8-ci-cd.git'
+      git 'https://github.com/MAlamGit/mk-k8-ci-cd.git'
       //sh "git rev-parse --short HEAD > .git/commit-id"
       //imageTag= readFile('.git/commit-id').trim()
-
-
 
   }
 

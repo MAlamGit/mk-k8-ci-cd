@@ -1,7 +1,7 @@
 node{
   def Namespace = "pkapp"
   def ImageName = "mahtabdocker/mkimage"
-  def Creds	= "mk-dockerhub-creds"
+  def Creds	= "mah-dockerhub-creds"
   def imageTag = "1.0"
   try{
   stage('Checkout'){
@@ -17,7 +17,7 @@ node{
       sh "npm test"
   }
   stage('Docker Build, Push'){
-    withDockerRegistry([credentialsId: "${docker-cred}", url: 'https://index.docker.io/v1/']) {
+    withDockerRegistry([credentialsId: "${Creds}", url: 'https://index.docker.io/v1/']) {
       sh "docker build -t ${ImageName}:${imageTag} ."
       sh "docker push ${ImageName}"
         }

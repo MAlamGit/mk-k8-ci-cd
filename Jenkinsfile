@@ -17,7 +17,7 @@ node{
       sh "npm test"
   }
   stage('Docker Build, Push'){
-    withDockerRegistry([credentialsId: "${Creds}", url: 'https://index.docker.io/v1/']) {
+    withDockerRegistry([credentialsId: "${docker-cred}", url: 'https://index.docker.io/v1/']) {
       sh "docker build -t ${ImageName}:${imageTag} ."
       sh "docker push ${ImageName}"
         }
